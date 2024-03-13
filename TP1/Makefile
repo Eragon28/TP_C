@@ -17,6 +17,7 @@ $(BIN)/exo1.o: $(SRC)/exo1.c
 $(BIN)/exo2.o: $(SRC)/exo2.c
 	$(CC) $(CFLAGS) -c $(SRC)/exo2.c -o $(BIN)/exo2.o
 
+
 $(BIN):
 	mkdir -p $(BIN)
 
