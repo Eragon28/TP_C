@@ -7,16 +7,12 @@ CC := gcc
 LDFLAGS := -lm
 RM := rm
 
-OBJS := $(SRC)/exo1.c
+OBJS := $(BIN)/exo1.o $(BIN)/exo2.o $(BIN)/exo3.o 
 
-all: $(BIN) $(BIN)/exo1 $(BIN)/exo2
+all: $(BIN) $(OBJS)
 
-$(BIN)/exo1.o: $(SRC)/exo1.c
-	$(CC) $(CFLAGS) -c $(SRC)/exo1.c -o $(BIN)/exo1.o
-
-$(BIN)/exo2.o: $(SRC)/exo2.c
-	$(CC) $(CFLAGS) -c $(SRC)/exo2.c -o $(BIN)/exo2.o
-
+$(BIN)/%.o: $(SRC)/%.c
+	$(CC) $(CFLAGS) -c $< -o $@
 
 $(BIN):
 	mkdir -p $(BIN)
