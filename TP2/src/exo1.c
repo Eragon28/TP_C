@@ -18,16 +18,16 @@ int main(int argc, char *argv[])
         display1(nb1);
         break;
     case 2:
-        display1(nb1);
+        display2(nb1);
         break;
     case 3:
-        display1(nb1);
+        display3(nb1);
         break;
     case 4:
-        display1(nb1);
+        display4(nb1);
         break;
     case 5:
-        display1(nb1);
+        display5(nb1);
         break;
     default:
         break;
@@ -45,11 +45,28 @@ void display1(int number){
 }
 
 void display2(int number){
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = 0; j < number-i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
 
 }
 
 void display3(int number){
-
+    
+    
 }
 
 void display4(int number){
