@@ -7,7 +7,7 @@ CC := gcc
 LDFLAGS := -lm
 RM := rm
 
-OBJS := $(BIN)/exo1 $(BIN)/exo2 $(BIN)/exo3 $(BIN)/exo4 $(BIN)/exo5 $(BIN)/exo6 $(BIN)/exo7
+OBJS := $(BIN)/exo1 $(BIN)/exo2 $(BIN)/exo3 $(BIN)/exo4 $(BIN)/exo5 $(BIN)/exo6 $(BIN)/exo7 $(BIN)/exo9 $(BIN)/exo10
 
 all: $(BIN) $(OBJS)
 
