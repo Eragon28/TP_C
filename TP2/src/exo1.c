@@ -1,33 +1,33 @@
 #include <stdio.h>
 
+
+
 int main(int argc, char *argv[])
 {
     int nb1, nb2;
 
     printf("Entrez un nombre : \n");
-    scanf(" %d", &nb1);
+    scanf("%d", &nb1);
 
     printf("Choisir la disposition (1,2,3,4,5) : \n");
-    scanf(" %d", &nb2);
-    char repet = "*";
-    char white=" ";
-
+    scanf("%d", &nb2);
+    printf("TEST");
     switch (nb2)
     {
     case 1:
         display1(nb1);
         break;
     case 2:
-        display1(nb1);
+        display2(nb1);
         break;
     case 3:
-        display1(nb1);
+        display3(nb1);
         break;
     case 4:
-        display1(nb1);
+        display4(nb1);
         break;
     case 5:
-        display1(nb1);
+        display5(nb1);
         break;
     default:
         break;
@@ -36,12 +36,18 @@ int main(int argc, char *argv[])
 }
 
 void display1(int number){
+    char repet = "*";
+    char white=" ";
     for (int i = 0; i < number; i++)
     {
-        
+        int l = 0;
+        while (l < number)
+        {
+            printf(repet);
+            l = l + 1;
+        }
+        printf('\n');
     }
-    
-
 }
 
 void display2(int number){
