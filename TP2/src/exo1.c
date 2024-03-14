@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
 
     printf("Choisir la disposition (1,2,3,4,5) : \n");
     scanf("%d", &nb2);
-    printf("TEST");
+
     switch (nb2)
     {
     case 1:
@@ -30,24 +30,27 @@ int main(int argc, char *argv[])
         display5(nb1);
         break;
     default:
+        printf("Error");
         break;
-    }
+    } 
 
 }
 
 void display1(int number){
-    char repet = "*";
-    char white=" ";
     for (int i = 0; i < number; i++)
     {
-        int l = 0;
-        while (l < number -1)
+        int index = 0;
+        
+        while (index < number)
         {
-            printf(repet);
-            l = l + 1;
+           printf("*");
+           index = index + 1;
         }
-        printf('\n');
+        
+        printf("\n");
+        
     }
+    
 }
 
 void display2(int number){
