@@ -41,7 +41,7 @@ void display1(int number){
     for (int i = 0; i < number; i++)
     {
         int l = 0;
-        while (l < number)
+        while (l < number -1)
         {
             printf(repet);
             l = l + 1;
