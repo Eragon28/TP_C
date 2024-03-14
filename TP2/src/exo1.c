@@ -54,11 +54,28 @@ void display1(int number){
 }
 
 void display2(int number){
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = 0; j < number-i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
 
 }
 
 void display3(int number){
-
+    
+    
 }
 
 void display4(int number){
