@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdbool.h>
 
 
 
@@ -119,43 +120,43 @@ void display4(int number){
             printf("*");
         }
         printf("\n");
+        
         taille = taille + 2;
-        spaceTaille = spaceTaille - 1;   
+        spaceTaille = spaceTaille - 1; 
+        
+
     }
 }
 
 void display5(int number){
-    for (int i = 0; i < number; i++)
+    int taille = 1;
+    int spaceTaille = number - taille;
+    bool change = false;
+    for (int i = 0; i < number*2; i++)
     {
-        for (int j = number-i; j > 0; j--)
+        for (int j = 0; j < spaceTaille; j++)
         {
             printf(" ");
         }
-        for (int j = 0; j < i+1; j++)
-        {
-            printf("*");
-        }
-        for (int j = 0; j < i; j++)
-        {
-            printf("*");
-        }
-        printf("\n");
-    }
 
-    for (int i = 1; i < number; i++)
-    {
-        for (int j = 0; j < i +1; j++)
-        {
-            printf(" ");
-        }
-        for (int j = 0; j < number-i; j++)
-        {
-            printf("*");
-        }
-        for (int j = 0; j < number-i-1; j++)
+        for (int j = 0; j < taille; j++)
         {
             printf("*");
         }
         printf("\n");
+
+        if (spaceTaille == 0)
+        {
+            change = true;
+        }
+        
+        if(change){
+            taille = taille - 2;
+            spaceTaille = spaceTaille + 1; 
+        }else{
+            taille = taille + 2;
+            spaceTaille = spaceTaille - 1; 
+        }
+
     }
 }
