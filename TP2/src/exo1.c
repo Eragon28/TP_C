@@ -74,6 +74,7 @@ void display2(int number){
 }
 
 void display3(int number){
+
     
     for (int i = 0; i < number; i++)
     {
@@ -98,26 +99,28 @@ void display3(int number){
             printf("*");
         }
         printf("\n");
-    }
+    } 
     
 }
 
 void display4(int number){
+
+    int taille = 1;
+    int spaceTaille = number - taille;
     for (int i = 0; i < number; i++)
     {
-        for (int j = number-i; j > 0; j--)
+        for (int j = 0; j < spaceTaille; j++)
         {
             printf(" ");
         }
-        for (int j = 0; j < i+1; j++)
-        {
-            printf("*");
-        }
-        for (int j = 0; j < i; j++)
+
+        for (int j = 0; j < taille; j++)
         {
             printf("*");
         }
         printf("\n");
+        taille = taille + 2;
+        spaceTaille = spaceTaille - 1;   
     }
 }
 
