@@ -75,11 +75,50 @@ void display2(int number){
 
 void display3(int number){
     
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = 0; j < number-i; j++)
+        {
+            printf(" ");
+        }
+        for (int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = 0; j < i; j++)
+        {
+            printf(" ");
+        }
+        for (int j = 0; j < number-i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
     
 }
 
 void display4(int number){
-
+    for (int i = 0; i < number; i++)
+    {
+        for (int j = number-i; j > 0; j--)
+        {
+            printf(" ");
+        }
+        for (int j = 0; j < i+1; j++)
+        {
+            printf("*");
+        }
+        for (int j = 0; j < i; j++)
+        {
+            printf("*");
+        }
+        printf("\n");
+    }
 }
 
 void display5(int number){
