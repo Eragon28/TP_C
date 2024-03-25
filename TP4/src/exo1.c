@@ -112,8 +112,6 @@ void retrouver_modifier_afficher_personne(const char* nom) {
         }
     }
     
-    //Display info
-    
     int choice;
 
 
