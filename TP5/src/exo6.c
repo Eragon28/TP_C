@@ -15,6 +15,7 @@ void echanger(int* a, int* b)
     *a = *b;
     *b = tmp;
 }
+
 void main()
 {
     int x,y;
