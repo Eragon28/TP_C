@@ -1,4 +1,4 @@
-#define N 3
+#define N 5
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -7,15 +7,14 @@ typedef struct maillon {
     struct maillon * suiv;
 } maillon;
 
-void main(void)
-{
+maillon* initListe(){
     maillon *lc;
     maillon *tete;
-    int cpt; /*init des maillons*/
+    int cpt; 
     lc = (maillon *) malloc(sizeof(maillon));
     tete = lc;
-    //Creation des maillons en fin de liste
-    for(cpt=1;cpt<N;cpt++) //pour tous les maillons à créer
+    
+    for(cpt=1;cpt<N;cpt++) 
     {
         lc->suiv = (maillon *) malloc(sizeof(maillon));
         lc = lc->suiv;
@@ -23,13 +22,21 @@ void main(void)
     lc->suiv = NULL;
     cpt = 0;
     lc = tete;
-    //remplissage des valeurs de chacun des maillons
-    while (lc != NULL) //tant que le maillon courant n'est pas le suivant du dernier maillon de la liste
+    
+    while (lc != NULL) 
     {
-        lc->x = cpt; //affectation
-        cpt++; //increment du compteur
-        lc = lc->suiv;//passe au suivant
+        lc->x = cpt; 
+        cpt++; 
+        lc = lc->suiv;
     }
+    lc = tete;
+
+    return tete;
+}
+
+void displayList(maillon* tete){
+    maillon *lc;
+    lc = (maillon *) malloc(sizeof(maillon));
     lc = tete;
     while (lc != NULL) //tant que le maillon courant n'est pas le suivant du dernier maillon de la liste
     {
@@ -38,3 +45,42 @@ void main(void)
         lc = lc->suiv;//passe au suivant
     }
 }
+
+void deleteMaillon(int index, maillon* tete){
+    maillon *lc;
+    lc = (maillon *) malloc(sizeof(maillon));
+    lc = tete;
+    for (size_t i = 0; i < index; i++)
+    {
+        if(lc->suiv == NULL){
+            break;
+        }
+        if(i == index-1){
+            lc->suiv = lc->suiv->suiv;
+            break;
+        }else{
+            lc = lc->suiv;
+        }
+    }
+    
+}
+
+void main(void)
+{
+    maillon *lc;
+    lc = (maillon *) malloc(sizeof(maillon));
+    maillon* tete = initListe(N);
+    
+    displayList(tete);
+
+    int index;
+    printf("Index de l'élément à supprimer : \n");
+    scanf("%d", &index);
+
+    deleteMaillon(index, tete);
+
+    displayList(tete);
+
+
+}
+
