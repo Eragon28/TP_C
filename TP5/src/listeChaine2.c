@@ -70,17 +70,12 @@ void main(void)
     maillon *lc;
     lc = (maillon *) malloc(sizeof(maillon));
     maillon* tete = initListe(N);
-    
-    displayList(tete);
 
+    displayList(tete);
     int index;
     printf("Index de l'élément à supprimer : \n");
     scanf("%d", &index);
-
     deleteMaillon(index, tete);
-
     displayList(tete);
-
-
 }
 
