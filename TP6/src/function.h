@@ -14,7 +14,7 @@ typedef struct Personne {
     char nom[20];
     char prenom[20];
     int numéroBadge;
-    char codeSecret[5];
+    char codeSecret[20];
     struct ListDoublementChaineDate * passage;
 } Personne;
 
@@ -31,6 +31,7 @@ typedef struct ListDoublementChaineDate{
     struct ListDoublementChainesDate * suiv;
 } ListDoublementChaineDate;
 
+void addPersonne(ListDoublementChainePersonne* tete);
 void display_list_personne(ListDoublementChainePersonne* tete);
 void display_one_personne(Personne pers);
 void delete_people(ListDoublementChainePersonne* tete, int index);

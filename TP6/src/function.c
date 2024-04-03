@@ -3,11 +3,47 @@
 #include <stdbool.h>
 #include "function.h"
 
+
+void addPersonne(ListDoublementChainePersonne* tete){
+    struct Personne nouvelle_personne;
+    
+    printf("Nom : ");
+    scanf("%20s", nouvelle_personne.nom);
+    
+    printf("Prénom : ");
+    scanf("%20s", nouvelle_personne.prenom);
+    
+    printf("Numéro de badge");
+    scanf("%d", &nouvelle_personne.numéroBadge);
+
+    printf("Numéro de badge");
+    scanf("%d", &nouvelle_personne.numéroBadge);
+
+    printf("Code secret (max 20 caractères) : ");
+    scanf("%20s", nouvelle_personne.codeSecret);
+
+    ListDoublementChainePersonne *lc;
+    lc = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
+    lc = tete;
+    while (lc != NULL)
+    {
+        lc = lc->suiv;
+    }
+
+    struct ListDoublementChainePersonne newP;
+    newP.value = nouvelle_personne;
+    newP.prec = lc;
+    newP.suiv = NULL;
+
+    printf("Personne ajoutée avec succès.\n");
+}
+
+
 void display_list_personne(ListDoublementChainePersonne* tete){
     ListDoublementChainePersonne *lc;
     lc = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
     lc = tete;
-    while (lc != NULL) //tant que le maillon courant n'est pas le suivant du dernier maillon de la liste
+    while (lc != NULL)
     {
         printf("Valeur du champs courant = %d \n",lc->value);
         printf("Adresse maillon courant= %X et du suivant %X\n",lc, lc->suiv);

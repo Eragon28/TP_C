@@ -4,17 +4,56 @@
 
 int main() {
     int choix;
+    struct Personne admin;
+    strcpy(admin.nom ,"admin");
+    strcpy(admin.prenom,"admin");
+    admin.numéroBadge = 123456;
+    strcpy(admin.codeSecret,"admin");
+    admin.passage = (ListDoublementChaineDate *) malloc(sizeof(ListDoublementChaineDate));
+    struct ListDoublementChainePersonne tete;
+    tete.value = admin;
+    tete.prec = NULL;
+    tete.suiv = NULL;
+
     
+
     do {
         printf("\nMenu :\n");
         printf("1. Définir une personne\n");
-        printf("2. Afficher les personnes\n");
-        printf("3. Classer les noms par date de naissance\n");
-        printf("4. Retrouver, modifier et afficher une personne\n");
-        printf("5. Supprimer une personne\n");
+        printf("2. Afficher la liste\n");
+        printf("3. Modifier le code d'un badge\n");
+        printf("4. Supprimer une personne par son numéro de badge\n");
+        printf("5. Contrôle d'accès\n");
+        printf("6. Sauvegarder la liste\n");
+        printf("7. Utiliser la liste sauvegardée\n");
         printf("0. Quitter\n");
         printf("Choix : ");
         scanf("%d", &choix);
+
+        switch (choix)
+        {
+        case 1:
+            break;
+        case 2:
+            break;
+        case 3:
+            break;
+        case 4:
+            break;
+        case 5:
+            break;
+        case 6:
+            break;
+        case 7:
+            break;
+        case 0:
+            printf("Fin du programme");
+            break;
+        default:
+            printf("Mauvaise commmande");
+            break;
+        }
+        
 
     }while (choix != 0);
 
