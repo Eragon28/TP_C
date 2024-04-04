@@ -1,4 +1,4 @@
-#define PERSONNE_H
+#define ACCESS
 #include <stdio.h>
 #include <time.h>
 #include <stdbool.h>
@@ -27,15 +27,16 @@ typedef struct ListDoublementChainePersonne{
 
 typedef struct ListDoublementChaineDate{
     struct ListDoublementChaineDate * prec;
-    struct Personne value;
+    struct Date value;
     struct ListDoublementChainesDate * suiv;
 } ListDoublementChaineDate;
+
+
 
 void addPersonne(ListDoublementChainePersonne* tete);
 void display_list_personne(ListDoublementChainePersonne* tete);
 void display_one_personne(Personne pers);
 void delete_people(ListDoublementChainePersonne* tete, int index);
-void display_date(ListDoublementChaineDate* teteDate);
 bool controleAcces(ListDoublementChainePersonne* tete);
 void writeData();
 void getData();

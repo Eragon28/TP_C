@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include "./function.h"
 
 
@@ -33,12 +34,18 @@ int main() {
         switch (choix)
         {
         case 1:
+            addPersonne(&tete);
             break;
         case 2:
+            display_list_personne(&tete);
             break;
         case 3:
             break;
         case 4:
+            int numBadge;
+            printf("Numéro de badge");
+            scanf("%d", &numBadge);
+            delete_people(&tete, numBadge); 
             break;
         case 5:
             break;
