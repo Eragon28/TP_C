@@ -24,12 +24,10 @@ void addPersonne(ListDoublementChainePersonne* tete){
 
     ListDoublementChainePersonne *lc = tete;
 
-    printf("%x \n", &tete);
     while (lc->suiv != NULL)
     {
         lc = lc->suiv;
     }
-    printf("%x \n", &tete);
 
     struct ListDoublementChainePersonne *newP = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
     newP->value = nouvelle_personne;
@@ -45,10 +43,7 @@ void display_list_personne(ListDoublementChainePersonne* tete){
     ListDoublementChainePersonne *lc = tete;
 
     while (lc != NULL) {
-        printf("Adresse de lc : %p\n", (void *)lc); // Affichez l'adresse de lc
-        printf("Adresse de suivant : %p\n", (void *)lc->suiv); // Affichez l'adresse du suivant de lc
-        printf("Personne :\n");
-        printf("%s %s avec le numéro de badge %d \n", lc->value.nom, lc->value.prenom, lc->value.numéroBadge);
+        printf("- %s %s avec le numéro de badge %d \n", lc->value.nom, lc->value.prenom, lc->value.numéroBadge);
         
         
         /* ListDoublementChaineDate *date;
@@ -72,28 +67,53 @@ void delete_people(ListDoublementChainePersonne* tete, int numerobadge){
     ListDoublementChainePersonne *lc;
     lc = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
     lc = tete;
+    
     bool find = false;
+
+    
     while (lc != NULL && !find)
     {
         if(lc->value.numéroBadge == numerobadge){
-            lc->prec->suiv = lc->suiv;
-            lc->suiv->prec = lc->prec;
-            find = true;
-            printf("Personne supprimé \n");
-        }
+            if(lc->suiv != NULL){
+                lc->suiv->prec = lc->prec;
+            }
 
+            if(lc->prec != NULL){
+                lc->prec->suiv = lc->suiv;
+            }
+            find = true;
+            printf("Personne supprimé \n"); 
+        }
+        lc = lc->suiv;
+
+    } 
+
+}
+
+bool controleAcces(ListDoublementChainePersonne* tete, int numBadge){
+    ListDoublementChainePersonne *lc = tete;
+    char codeSecretUser[21];
+    printf("Entrez un code secret : ");
+    scanf("%20s", codeSecretUser);
+
+    while (lc != NULL) {
+        if (lc->value.numéroBadge == numBadge && strcmp(lc->value.codeSecret, codeSecretUser) == 0) {
+            return true;
+        }
+        lc = lc->suiv;
     }
 
-}
-
-bool controleAcces(ListDoublementChainePersonne* tete){
-    bool ret = false;
-
-
-    return ret;
+    return false;
 }
 void writeData(){
+    FILE *fichier = fopen("backup.txt", "w");
 
+    if (fichier == NULL) {
+        printf("Erreur lors de l'ouverture du fichier\n");
+        return;
+    }
+
+    //ListDoublementChaine *lc = tete;
 }
 void getData(){
 

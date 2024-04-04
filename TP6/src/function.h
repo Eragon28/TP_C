@@ -36,8 +36,8 @@ typedef struct ListDoublementChaineDate{
 void addPersonne(ListDoublementChainePersonne* tete);
 void display_list_personne(ListDoublementChainePersonne* tete);
 void display_one_personne(Personne pers);
-void delete_people(ListDoublementChainePersonne* tete, int index);
-bool controleAcces(ListDoublementChainePersonne* tete);
+void delete_people(ListDoublementChainePersonne* tete, int numerobadge);
+bool controleAcces(ListDoublementChainePersonne* tete, int numBadge);
 void writeData();
 void getData();
 

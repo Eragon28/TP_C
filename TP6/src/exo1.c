@@ -15,21 +15,6 @@ int main() {
     tete.prec = NULL;
     tete.suiv = NULL;
 
-    struct Personne adminBis;
-    strcpy(adminBis.nom ,"admin2");
-    strcpy(adminBis.prenom,"admin2");
-    adminBis.numéroBadge = 123456;
-    strcpy(adminBis.codeSecret,"admin3");
-    adminBis.passage = (ListDoublementChaineDate *) malloc(sizeof(ListDoublementChaineDate));
-    struct ListDoublementChainePersonne teteBis;
-    teteBis.value = adminBis;
-    teteBis.prec = &tete;
-    teteBis.suiv = NULL;
-
-    tete.suiv = &teteBis;
-
-    
-
     do {
         printf("\nMenu :\n");
         printf("1. Définir une personne\n");
@@ -42,7 +27,7 @@ int main() {
         printf("0. Quitter\n");
         printf("Choix : ");
         scanf("%d", &choix);
-
+        int numBadge;
         switch (choix)
         {
         case 1:
@@ -54,12 +39,24 @@ int main() {
         case 3:
             break;
         case 4:
-            int numBadge;
-            printf("Numéro de badge");
+
+            printf("Numéro de badge : ");
+            
             scanf("%d", &numBadge);
-            delete_people(&tete, numBadge); 
+            printf("%d", numBadge);
+            delete_people(&tete, numBadge);  
             break;
         case 5:
+            int numBadgeA;
+            printf("Numéro de badge : ");
+            scanf("%d", &numBadgeA);
+            if (controleAcces(&tete, numBadgeA) == true) {
+                printf("Accès autorisé");
+            }
+            else {
+                printf("Accès refusé...");
+            }
+            
             break;
         case 6:
             break;
