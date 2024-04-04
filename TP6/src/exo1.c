@@ -59,7 +59,7 @@ int main() {
             
             break;
         case 6:
-            break;
+            writeData(&tete);
         case 7:
             break;
         case 0:

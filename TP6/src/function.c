@@ -105,7 +105,7 @@ bool controleAcces(ListDoublementChainePersonne* tete, int numBadge){
 
     return false;
 }
-void writeData(){
+void writeData(ListDoublementChainePersonne* tete){
     FILE *fichier = fopen("backup.txt", "w");
 
     if (fichier == NULL) {
@@ -113,7 +113,28 @@ void writeData(){
         return;
     }
 
-    //ListDoublementChaine *lc = tete;
+    ListDoublementChainePersonne *lc = tete;
+
+   while (lcPersonne != NULL) {
+        fprintf(fichier, "Nom : %s\n", lcPersonne->value.nom);
+        fprintf(fichier, "Prénom : %s\n", lcPersonne->value.prenom);
+        fprintf(fichier, "Numéro de badge : %d\n", lcPersonne->value.numéroBadge);
+        fprintf(fichier, "Code secret : %s\n", lcPersonne->value.codeSecret);
+
+        // Écriture des informations de passage
+        fprintf(fichier, "Passage :\n");
+        ListDoublementChaineDate *passage = lcPersonne->value.passage;
+        while (passage != NULL) {
+            fprintf(fichier, "- Date : %d/%d/%d\n", passage->value.jour, passage->value.mois, passage->value.annee);
+            passage = passage->suiv;
+        }
+
+        fprintf(fichier, "\n");
+        lcPersonne = lcPersonne->suiv;
+    }
+
+    fclose(fichier); 
+    printf("Données sauvegardées dans le fichier.\n");
 }
 void getData(){
 

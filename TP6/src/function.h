@@ -38,6 +38,6 @@ void display_list_personne(ListDoublementChainePersonne* tete);
 void display_one_personne(Personne pers);
 void delete_people(ListDoublementChainePersonne* tete, int numerobadge);
 bool controleAcces(ListDoublementChainePersonne* tete, int numBadge);
-void writeData();
+void writeData(ListDoublementChainePersonne* tete);
 void getData();
 
