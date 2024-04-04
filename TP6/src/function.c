@@ -113,28 +113,26 @@ void writeData(ListDoublementChainePersonne* tete){
         return;
     }
 
-    ListDoublementChainePersonne *lc = tete;
+    ListDoublementChainePersonne *lcPersonne = tete;
 
-   while (lcPersonne != NULL) {
-        fprintf(fichier, "Nom : %s\n", lcPersonne->value.nom);
-        fprintf(fichier, "Prénom : %s\n", lcPersonne->value.prenom);
-        fprintf(fichier, "Numéro de badge : %d\n", lcPersonne->value.numéroBadge);
-        fprintf(fichier, "Code secret : %s\n", lcPersonne->value.codeSecret);
+    while (lcPersonne != NULL) {
+            fprintf(fichier, "Nom : %s\n", lcPersonne->value.nom);
+            fprintf(fichier, "Prénom : %s\n", lcPersonne->value.prenom);
+            fprintf(fichier, "Numéro de badge : %d\n", lcPersonne->value.numéroBadge);
+            fprintf(fichier, "Code secret : %s\n", lcPersonne->value.codeSecret);
+            fprintf(fichier, "Passage :\n");
+            ListDoublementChaineDate *passage = lcPersonne->value.passage;
+            while (passage != NULL) {
+                fprintf(fichier, "- Date : %d/%d/%d\n", passage->value.jour, passage->value.mois, passage->value.annee);
+                passage = passage->suiv;
+            }
 
-        // Écriture des informations de passage
-        fprintf(fichier, "Passage :\n");
-        ListDoublementChaineDate *passage = lcPersonne->value.passage;
-        while (passage != NULL) {
-            fprintf(fichier, "- Date : %d/%d/%d\n", passage->value.jour, passage->value.mois, passage->value.annee);
-            passage = passage->suiv;
+            fprintf(fichier, "\n");
+            lcPersonne = lcPersonne->suiv;
         }
 
-        fprintf(fichier, "\n");
-        lcPersonne = lcPersonne->suiv;
-    }
-
-    fclose(fichier); 
-    printf("Données sauvegardées dans le fichier.\n");
+        fclose(fichier); 
+        printf("Données sauvegardées dans le fichier.\n");
 }
 void getData(){
 
