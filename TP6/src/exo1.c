@@ -2,7 +2,6 @@
 #include <string.h>
 #include "./function.h"
 
-
 int main() {
     int choix;
     struct Personne admin;
@@ -15,6 +14,19 @@ int main() {
     tete.value = admin;
     tete.prec = NULL;
     tete.suiv = NULL;
+
+    struct Personne adminBis;
+    strcpy(adminBis.nom ,"admin2");
+    strcpy(adminBis.prenom,"admin2");
+    adminBis.numéroBadge = 123456;
+    strcpy(adminBis.codeSecret,"admin3");
+    adminBis.passage = (ListDoublementChaineDate *) malloc(sizeof(ListDoublementChaineDate));
+    struct ListDoublementChainePersonne teteBis;
+    teteBis.value = adminBis;
+    teteBis.prec = &tete;
+    teteBis.suiv = NULL;
+
+    tete.suiv = &teteBis;
 
     
 

@@ -22,10 +22,8 @@ void addPersonne(ListDoublementChainePersonne* tete){
     scanf("%20s", nouvelle_personne.codeSecret);
     nouvelle_personne.passage = (ListDoublementChaineDate *) malloc(sizeof(ListDoublementChaineDate));
 
-    
-    ListDoublementChainePersonne *lc;
-    lc = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
-    lc = tete;
+    ListDoublementChainePersonne *lc = tete;
+
     printf("%x \n", &tete);
     while (lc->suiv != NULL)
     {
@@ -33,41 +31,38 @@ void addPersonne(ListDoublementChainePersonne* tete){
     }
     printf("%x \n", &tete);
 
-    ListDoublementChainePersonne newP;
+    struct ListDoublementChainePersonne *newP = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
+    newP->value = nouvelle_personne;
+    newP->prec = lc;
+    newP->suiv = NULL;
+    lc->suiv = newP;
     
-    newP.value = nouvelle_personne;
-    newP.prec = lc;
-    newP.suiv = NULL;
-    printf("crash %x\n", &newP);
-    printf("nom : %s\n", newP.value.nom);
-    lc->suiv = &newP;
-    printf("%x", lc->suiv);
     printf("Personne ajoutée avec succès.\n");
 }
 
 
 void display_list_personne(ListDoublementChainePersonne* tete){
-    ListDoublementChainePersonne *lc;
-    lc = (ListDoublementChainePersonne *) malloc(sizeof(ListDoublementChainePersonne));
-    lc = tete;
-    while (lc != NULL)
-    {
-        printf("Personne : \n");
-        printf("%s %s avec le numéro de badge %d \n", lc->value.nom,lc->value.prenom, lc->value.numéroBadge);
-        printf("Passage : \n");
-        ListDoublementChaineDate *date;
-        date = (ListDoublementChaineDate *) malloc(sizeof(ListDoublementChaineDate));
-        date = lc->value.passage;
-        if(date->suiv != NULL){
-            while (date->suiv != NULL)
-            {
-                printf("- %d %d %d ", date->value.jour, date->value.mois, date->value.annee );
-                date = date->suiv;
-            }
-        }
-        printf("%x", lc->suiv);
-        lc = lc->suiv;
+    ListDoublementChainePersonne *lc = tete;
 
+    while (lc != NULL) {
+        printf("Adresse de lc : %p\n", (void *)lc); // Affichez l'adresse de lc
+        printf("Adresse de suivant : %p\n", (void *)lc->suiv); // Affichez l'adresse du suivant de lc
+        printf("Personne :\n");
+        printf("%s %s avec le numéro de badge %d \n", lc->value.nom, lc->value.prenom, lc->value.numéroBadge);
+        
+        
+        /* ListDoublementChaineDate *date;
+        date = (ListDoublementChaineDate *) malloc(sizeof(ListDoublementChaineDate));
+        printf("%x", lc->value.passage);
+        date = lc->value.passage;
+        printf("Passage : \n");
+        printf("%x", date);
+        while (date->suiv != NULL)
+        {
+            printf("- %d %d %d ", date->value.jour, date->value.mois, date->value.annee );
+            date = date->suiv;
+        } */
+        lc = lc->suiv;
     }
 }
 void display_one_personne(Personne pers){
