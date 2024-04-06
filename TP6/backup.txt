@@ -1,7 +1,0 @@
-Nom : admin
-Prénom : admin
-Numéro de badge : 123456
-Code secret : admin
-Passage :
-- Date : 0/0/0
-
